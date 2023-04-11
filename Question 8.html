@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="addInterns()">
+        add Intern
+    </button>
+
+    <script>
+        let interns = localStorage.getItem("newIntern"); 
+        let newIntern = interns ? JSON.parse(interns) : [];
+        function addInterns() {
+            let jobSeeker = {
+                name: prompt("Enter Name"),
+                interNo: +prompt("Enter Internship Number"),
+                age: +prompt("Enter Your Age"),
+                qualification: prompt("Enter Your Qualification"),
+                degree: prompt("Enter degree "),
+                skills: prompt("Enter Your Skills")
+            };
+            newIntern.push(jobSeeker);
+            console.log(newIntern);
+            let stringify = JSON.stringify(newIntern); 
+            localStorage.setItem("newIntern", stringify); 
+        }
+    </script>
+</body>
+
+</html>
